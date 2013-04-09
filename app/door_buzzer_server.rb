@@ -12,4 +12,6 @@ get '/buzz' do
   @gpio.write(17, HIGH)
   sleep(5)
   @gpio.write(17, LOW)
+
+  redirect '/'
 end
