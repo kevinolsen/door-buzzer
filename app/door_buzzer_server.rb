@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'gpio'
+require 'wiringpi'
 
 #TODO: parse webcam url from config.yml
 get '/' do
@@ -7,5 +7,9 @@ get '/' do
 end
 
 get '/buzz' do
-  GPIO::Pin.new(pin: 22)
+  @gpio ||= WiringPi::GPIO.new(WPI_MODE_SYS)
+
+  @gpio.write(17, HIGH)
+  sleep(5)
+  @gpio.write(17, LOW)
 end

@@ -2,7 +2,7 @@ source :rubygems
 
 gem 'sinatra'
 gem 'haml'
-gem 'gpio'
+gem 'wiringpi'
 
 group :test do
   gem 'rspec'
